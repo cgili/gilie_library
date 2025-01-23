@@ -5,6 +5,7 @@
 #include <stddef.h> 
 #include <stdio.h>
 
+#define VERSION 11
 
 
 enum status_t
@@ -72,6 +73,19 @@ enum cmd_out_t : uint8_t
 
 
 #if (__STDC_VERSION__ >= 201710L)
+enum cmd_tmp_t
+#else 
+enum cmd_tmp_t : uint8_t
+#endif
+{
+    CMD_TMP_GET_VERSION,    // Retorna controle de versoes [uint8 PCI - uint8 BOM - uint8 SW]
+    CMD_TMP_SET_ADDRESS,    // Salva endereco de rede, endereco 0 (broadcast) e botao auxiliar. 
+    CMD_TMP_GET_TEMPERATURE   // Retorna o status e valor da temperatura (uint8_t status [1 erro, 0 ok] - float temperatura)
+};
+
+
+
+#if (__STDC_VERSION__ >= 201710L)
 enum cmd_pus_t
 #else 
 enum cmd_pus_t : uint8_t
@@ -113,7 +127,8 @@ enum serial_device_t : uint8_t
 	SERIAL_DEVICE_FITA_LED = 'L',
     SERIAL_DEVICE_PUS = 'P',
     SERIAL_DEVICE_OUTPUT = 'O',
-    SERIAL_DEVICE_INPUT = 'I'
+    SERIAL_DEVICE_INPUT = 'I',
+    SERIAL_DEVICE_TEMPERATURE = 'T'
 };
 
 
