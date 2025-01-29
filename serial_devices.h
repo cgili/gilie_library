@@ -5,18 +5,21 @@
 #include <stddef.h> 
 #include <stdio.h>
 
-#define VERSION 11
+#define VERSION 12
 
 
 enum status_t
 {
-    STATUS_OK,
+    STATUS_OFF,
+    STATUS_ON,
     STATUS_CORRENTE_BAIXA,
     STATUS_CORRENTE_ALTA,
     STATUS_FREQUENCIA_BAIXA,
     STATUS_FREQUENCIA_ALTA,
     STATUS_VIN_BAIXO,
-    STATUS_VIN_ALTO
+    STATUS_VIN_ALTO,
+    STATUS_AMP_BAIXA,
+    STATUS_AMP_ALTA
 };
 
 
