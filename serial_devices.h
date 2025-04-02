@@ -5,22 +5,22 @@
 #include <stddef.h> 
 #include <stdio.h>
 
-#define VERSION 13
+#define VERSION 14
 
 
-enum status_t
+enum status_pus_t
 {
-
-    STATUS_CORRENTE_BAIXA = 1,
-    STATUS_CORRENTE_ALTA,
-    STATUS_FREQUENCIA_BAIXA,
-    STATUS_FREQUENCIA_ALTA,
-    STATUS_VIN_BAIXO,
-    STATUS_VIN_ALTO,
-    STATUS_AMP_BAIXA,
-    STATUS_AMP_ALTA,
-    STATUS_OFF,
-    STATUS_ON,
+    STATUS_PUS_CORRENTE_BAIXA = 1,
+    STATUS_PUS_CORRENTE_ALTA,
+    STATUS_PUS_FREQUENCIA_BAIXA,
+    STATUS_PUS_FREQUENCIA_ALTA,
+    STATUS_PUS_VIN_BAIXO,
+    STATUS_PUS_VIN_ALTO,
+    STATUS_PUS_AMP_BAIXA,
+    STATUS_PUS_AMP_ALTA,
+    STATUS_PUS_OFF,
+    STATUS_PUS_ON,
+    STATUS_PUS_RS485_PODRE,
 };
 
 
@@ -36,30 +36,6 @@ enum cmd_inp_t : uint8_t
     CMD_INP_GET_VALUES      // 
 };
 
-
-//
-//serial.packet.size = 14;
-//
-//serial.packet.data[0] = analog[0];
-//serial.packet.data[1] = analog[0] >> 8;
-//
-//serial.packet.data[2] = analog[1];
-//serial.packet.data[3] = analog[1] >> 8;
-//
-//serial.packet.data[4] = analog[2];
-//serial.packet.data[5] = analog[2] >> 8;
-//
-//serial.packet.data[6] = analog[3];
-//serial.packet.data[7] = analog[3] >> 8;
-//
-//serial.packet.data[8] = analog[4];
-//serial.packet.data[9] = analog[4] >> 8;
-//
-//serial.packet.data[10] = analog[5];
-//serial.packet.data[11] = analog[5] >> 8;
-//
-//serial.packet.data[12] = inputs;
-//serial.packet.data[13] = inputs >> 8;
 
 
 
