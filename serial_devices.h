@@ -5,7 +5,7 @@
 #include <stddef.h> 
 #include <stdio.h>
 
-#define VERSION 14
+#define VERSION 15
 
 
 enum status_pus_t
@@ -72,8 +72,8 @@ enum cmd_pus_t : uint8_t
 #endif
 {
     CMD_PUS_GET_VERSION,    // Retorna controle de versoes [uint8 PCI - uint8 BOM - uint8 SW]
-    CMD_PUS_GET_SFCV,        // Retorna os valores status, frequencia, corrente e tensao (uint8 status [enum status_t] - int freq [Hz] - int corrente [mA] - float tensao [V])
-    CMD_PUS_SET_ON_OFF,     // Liga ou desliga potencia (uint8 state) on=1 - off=0
+    CMD_PUS_SGET_SFCV,        // Envia estado ON/OFF e Retorna os valores status, frequencia, corrente e tensao (uint8 status [enum status_t] - int freq [Hz] - int corrente [mA] - float tensao [V])
+    //CMD_PUS_SET_ON_OFF,     // Liga ou desliga potencia (uint8 state) on=1 - off=0
     CMD_PUS_SET_ADDRESS,         // Salva endereco de rede, endereco 0 (broadcast) e botao auxiliar. 
     CMD_PUS_GET_OTHERS          // Retorna outras variaveis (int amp [bin] - float duty, float integral)
 };
