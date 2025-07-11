@@ -5,7 +5,7 @@
 #include <stddef.h> 
 #include <stdio.h>
 
-#define VERSION 14
+#define VERSION 15
 
 
 enum status_pus_t
@@ -21,6 +21,19 @@ enum status_pus_t
     STATUS_PUS_OFF,
     STATUS_PUS_ON,
     STATUS_PUS_RS485_PODRE,
+};
+
+
+#if (__STDC_VERSION__ >= 201710L)
+enum cmd_sus_t
+#else 
+enum cmd_sus_t : uint8_t
+#endif
+{
+    CMD_SUS_GET_VERSION,    // Retorna controle de versoes [uint8 PCI - uint8 BOM - uint8 SW]
+    CMD_SUS_SET_ADDRESS,    // Salva endereco de rede, endereco 0 (broadcast) e botao auxiliar. 
+    CMD_SUS_GET_VALUES,     // [float rms (bin) - float frequencia kHz]
+    CMD_SUS_GET_WINDOW      // [120 samples over 8bits > total 30 bytes]    
 };
 
 
@@ -108,7 +121,8 @@ enum serial_device_t : uint8_t
     SERIAL_DEVICE_PUS = 'P',
     SERIAL_DEVICE_OUTPUT = 'O',
     SERIAL_DEVICE_INPUT = 'I',
-    SERIAL_DEVICE_TEMPERATURE = 'T'
+    SERIAL_DEVICE_TEMPERATURE = 'T',
+    SERIAL_DEVICE_SUS = 'S'                 // US tracker
 };
 
 
